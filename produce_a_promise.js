@@ -2,8 +2,9 @@ const cart = ["shoes", "pants", "kurta"];
 
 const promise = createOrder(cart); // orderId
 
-promise.then(function() {
-    proceedToPayment(orderId);
+promise.then(function(orderId) {
+    console.log(orderId);
+    // proceedToPayment(orderId);
 })
 
 //Producer
@@ -28,4 +29,8 @@ function createOrder(cart) {
 
     return pr;
 
+}
+
+function validateCart(){
+    return true;
 }
