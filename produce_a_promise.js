@@ -1,10 +1,21 @@
 const cart = ["shoes", "pants", "kurta"];
 
-const promise = createOrder(cart); // orderId
+// const promise = createOrder(cart); // orderId
 
-promise.then(function(orderId) {
+createOrder(cart)
+.then(function(orderId) {
     console.log(orderId);
+    return orderId;
     // proceedToPayment(orderId);
+})
+.then(function(orderId) {
+    return proceedToPayment(orderId);
+})
+.then(function(paymentInfo){
+    console.log(paymentInfo);
+})
+.catch(function (err) {
+    console.log(err.message);
 })
 
 //Producer
@@ -23,12 +34,20 @@ function createOrder(cart) {
         //logic for createOrder
         const orderId = "12345";
         if(orderId) {
-            resolve(orderId);
+            setTimeout(function() {
+                resolve(orderId);
+            }, 5000);            
         }
     });
 
     return pr;
 
+}
+
+function proceedToPayment(orderId) {
+    return new Promise( function(resolve,reject) {
+        resolve("Payment Successfull");
+    } )
 }
 
 function validateCart(){
