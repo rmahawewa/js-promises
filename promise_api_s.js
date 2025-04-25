@@ -60,5 +60,42 @@ Promise.allSettled([p3,p4,p5])
 .catch((err) => {
     console.error("4", err);
     console.log("4", err.error);
-})
+});
 
+//Promise.race
+
+Promise.race([p1,p2,p3])
+.then((res) => {
+    console.log("5", res);
+})
+.catch((err) => {
+    console.error("5", err);
+    console.log("5", err.error);
+});
+
+Promise.race([p2,p3,p4])
+.then((res) => {
+    console.log("6", res);
+})
+.catch((err) => {
+    console.error("6", err);
+    console.log("6", err.error);
+});
+
+Promise.race([p1,p3,p4])
+.then((res) => {
+    console.log("7",res);
+})
+.catch((err) => {
+    console.error("7",err);
+    console.log("7",err.error);
+});
+
+Promise.race([p4,p5,p6])
+.then((res) => {
+    console.log("8", res);
+})
+.catch((err) => {
+    console.error("8", err);
+    console.log("8", err.error);
+});
