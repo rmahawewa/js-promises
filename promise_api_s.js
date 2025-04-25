@@ -39,3 +39,4 @@ Promise.all([p1,p2,p4])
     console.error("2", err);
     console.log("2", err.errors);
 });
+
